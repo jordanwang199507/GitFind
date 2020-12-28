@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitFind Result</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div id="result">
+        <div id="result_avatar">
+            <img src="<%=target.avatar%>">
+        </div>
+        <div class="name">
+            <div id="result_name">
+                <h3><%= target.name %></h3>
+            </div>
+            <div id="login">
+                <a href="<%=target.html%>"><h4>@<%=target.login%></h4></a>
+            </div>
+        </div>
+        <div class="info">
+            <div id="location">
+                <i class="fas fa-map-marker-alt"></i><p><%=target.location%></p>
+            </div>
+            <div id="created">
+                <% var date = new Date(target.created) %>
+                <i class="fas fa-calendar-alt"></i><p>Joined <%=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()%></p>
+            </div>
+        </div>
+        <div class="stats">
+            <div id="repo"><%= target.repo%> <br> REPOSITORIES</div>
+            <div id="followers"><%= target.followers%> <br> FOLLOWERS</div>
+            <div id="following"><%= target.following%> <br> FOLLOWING</div>
+        </div>
+    </div>
+    <div class="return-container">
+        <a href="/"><button class="return">Return to GitFind</button></a>
+    </div>
+</body>
+</html>
+
+
+<!-- location: response.data.location,
+created: response.data.created_at,
+followers: response.data.followers,
+following: response.data.following -->
